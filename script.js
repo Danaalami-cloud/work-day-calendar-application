@@ -25,8 +25,6 @@ $("#16 .description").val(localStorage.getItem("16"));
 $("#17 .description").val(localStorage.getItem("17"));
 
 function colorTime() {
-  
-
   $(".time-block").each(function(){
     var hour = moment().hours();
     var entryHourStr = $(this).attr("id");
@@ -35,8 +33,11 @@ function colorTime() {
     if (entryHour < hour){
         $(this).addClass("past")
     } else if (entryHour === hour){
+        $(this).removeClass("past"); 
         $(this).addClass("present")
     }else {
+        $(this).removeClass("past"); 
+        $(this).removeClass("present")
         $(this).addClass("future")
     }
 })
