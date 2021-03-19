@@ -4,6 +4,7 @@ var textEl = $(".description");
 function displayTime() {
   var rightNow = moment().format("MMM DD, YYYY [at] h:mm:ss a");
   timeDisplayEl.text(rightNow);
+  colorTime();
 }
 
 $(".saveBtn").on("click", function () {
@@ -24,14 +25,21 @@ $("#16 .description").val(localStorage.getItem("16"));
 $("#17 .description").val(localStorage.getItem("17"));
 
 function colorTime() {
-  var presentTime = this.textContent;
-  if (colorTime < timeNow) {
-    return "style", "color:white;";
-  } else if (colorTime === timeNow) {
-    setAttribute("style", "color:red;");
-  } else colorTime > timeNow;
-  {
-  }
+  
+
+  $(".time-block").each(function(){
+    var hour = moment().hours();
+    var entryHourStr = $(this).attr("id");
+    var entryHour = parseInt(entryHourStr);
+
+    if (entryHour < hour){
+        $(this).addClass("past")
+    } else if (entryHour === hour){
+        $(this).addClass("present")
+    }else {
+        $(this).addClass("future")
+    }
+})
 }
 
 setInterval(displayTime, 1000);
