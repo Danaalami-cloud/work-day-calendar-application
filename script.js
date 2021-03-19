@@ -1,5 +1,6 @@
 var timeDisplayEl = $('#time-display');
 var saveButtonEl = $('.saveBtn');
+var textEl = $('.description');
 
 function displayTime() {
     var rightNow = moment().format('MMM DD, YYYY [at] h:mm:ss a');
@@ -7,15 +8,16 @@ function displayTime() {
 }
 setInterval(displayTime,1000);
 
-function timeBlock() {
-    var pressntTime = this.textContent;
-    if (timeBlock < timeNow ) {
-       return.setAttribute("style", "color:white;");
+function colorTime() {
+    var presentTime = this.textContent;
+    if (colorTime < timeNow ) {
+       return ("style", "color:white;");
+    
     }
-    else if (timeBlock === timeNow) {
-
+    else if (colorTime === timeNow) {
+       setAttribute("style", "color:red;");
     }
-    else (timeBlock > timeNow) {
+    else (colorTime > timeNow); {
 
     }
 }
